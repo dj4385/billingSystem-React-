@@ -62,12 +62,12 @@ class Container extends React.Component{
     render(){
         return (
             <div className="row m-1 p-5 text-dark">
-                <div className="col-lg-8">
+                <div className="col-lg-7">
                     <div className="jumbotron">
                         <Product pList={this.state.productList} selectItem={this.itemSelected.bind(this)}></Product>
                     </div>
                 </div>
-                <div className="col-lg-4">
+                <div className="col-lg-5">
                     <div className="jumbotron">
                         <TotalAmt cart={this.state.cartItem}></TotalAmt>
                     </div>

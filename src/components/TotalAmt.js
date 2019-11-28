@@ -1,10 +1,8 @@
 import React from 'react'
 
 export const TotalAmt = (props)=>{
-    console.log("Output",props.cart)
-
+    var selectedProduct = []
     var trjsx = ()=>{
-        var selectedProduct = []
         for(let i=0;i<props.cart.length;i++){
             selectedProduct.push(
                 <tr key={i}>
@@ -16,14 +14,25 @@ export const TotalAmt = (props)=>{
                 </tr>
             )
         }
+        console.log("Output",selectedProduct)
         return selectedProduct
     }
 
+    var totaljsx = ()=>{
+        var totalAmt = 0
+        if(selectedProduct.length>0){
+            selectedProduct.forEach(ele=>{
+                totalAmt += parseInt(ele.price)
+            })
+        }    
+        return totalAmt
+    }
+
     return(
-        <>
+        <div className="table-responsive">
             <h1 className="text-center">Total Amt</h1>
-            <table>
-                <thead>
+            <table className="table">
+                <thead className="table-dark">
                     <tr>
                         <th>Item Name</th>
                         <th>Category</th>
@@ -35,7 +44,10 @@ export const TotalAmt = (props)=>{
                 <tbody>
                     {trjsx()}
                 </tbody>
+                <tfoot>
+                   {totaljsx()}
+                </tfoot>
             </table>
-        </>
+        </div>
     )
 }
