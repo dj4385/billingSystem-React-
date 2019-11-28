@@ -10,7 +10,9 @@ export const TotalAmt = (props)=>{
                 <tr key={i}>
                     <td>{props.cart[i].name}</td>
                     <td>{props.cart[i].category}</td>
+                    <td>{props.cart[i].qty}</td>
                     <td>{props.cart[i].price}</td>
+                    <td>{props.cart[i].qty * props.cart[i].price}</td>
                 </tr>
             )
         }
@@ -25,7 +27,9 @@ export const TotalAmt = (props)=>{
                     <tr>
                         <th>Item Name</th>
                         <th>Category</th>
+                        <th>Qty</th>
                         <th>Price</th>
+                        <th>Total Amount</th>
                     </tr>
                 </thead>
                 <tbody>

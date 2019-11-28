@@ -33,8 +33,22 @@ class Container extends React.Component{
     }
 
     itemSelected(item){
+        var qty=1
         //this.selectedItem = item
-        this.selectedItem.push(item)
+        if(this.selectedItem.length===0){
+            item.qty = qty
+            this.selectedItem.push(item)
+        } else {
+            this.selectedItem.forEach(ele=>{
+                if(ele.name === item.name){
+                    ele.qty = ele.qty+1  
+                } else {
+                    item.qty = qty
+                    this.selectedItem.push(item)
+                }
+            })
+            
+        }
         this.setState({
             ...this.state,
             cartItem: this.selectedItem
