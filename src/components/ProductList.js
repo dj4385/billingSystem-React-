@@ -6,7 +6,11 @@ export const Product = (props)=>{
         var val = []
         for(let i=0;i<props.pList.length;i++){
             val.push(<div key={i}>
-                <p>
+                <p onClick={
+                    ()=>{
+                        props.selectItem(props.pList[i])
+                    }
+                }>
                     <span className="h4"><b>Product Name:</b> {props.pList[i].name}</span><br/>
                     <span><b>Category:</b> {props.pList[i].category}</span><br/>
                     <span><b>Price:</b>{props.pList[i].price}</span><br/>
